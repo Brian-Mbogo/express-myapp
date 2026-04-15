@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1 Contact Us
+  .contact-info
+    h3 Email
+    p info@ourbusiness.com
+    
+    h3 Phone
+    p +1 (555) 123-4567
+    
+    h3 Address
+    p 123 Business St, City, State 12345
+    
+  h3 Send Message
+  form(method="post")
+    label Name:
+    input(type="text" name="name")
+    label Email:
+    input(type="email" name="email")
+    label Message:
+    textarea(name="message")
+    button(type="submit") Send
+
