@@ -19,8 +19,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Working hours middleware
+app.use(function(req, res, next) {
+  const now = new Date();
+  const day = now.getDay();
+  const hour = now.getHours();
+  if (day >= 1 && day <= 5 && hour >= 9 && hour < 17) {
+    next();
+  } else {
+    return res.status(503).render('unavailable');
+  }
+});
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// Removed unused usersRouter
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

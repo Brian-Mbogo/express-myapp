@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Service Unavailable
+    link(rel="stylesheet" href="/stylesheets/style.css")
+  body
+    .unavailable
+      h1 Service Unavailable
+      p Please visit during working hours: <strong>Monday to Friday, 09:00 to 17:00</strong>.
+      p.current-time Current server time: #{new Intl.DateTimeFormat('en-US', {weekday:'long', hour:'2-digit', minute:'2-digit', hour12:false}).format(new Date())}
+
